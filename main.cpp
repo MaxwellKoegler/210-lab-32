@@ -8,6 +8,7 @@ const int N = 2;
 
 void p(deque<Car>&);
 
+
 int main() {
     srand(time(0));
     deque<Car> d;
