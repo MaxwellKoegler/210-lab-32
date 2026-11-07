@@ -17,7 +17,15 @@ int main() {
     }
     cout << "Init que:" << endl;
     p(d);
-
+    int t = 0;
+    while(!d.empty()) {
+        cout << endl << "Time: " << ++t << " Operation: ";
+        if((rand() % 100) < 55) {
+            cout << "Car paid: ";
+            d.front().print();
+            d.pop_front();
+        } 
+    }
 }
 
 void p(deque<Car>& d) {
