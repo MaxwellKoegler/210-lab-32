@@ -11,9 +11,9 @@ void p(deque<Car>&);
 
 int main() {
     srand(time(0));
-    deque<Car> d;
+    deque<Car> d; //car obj que
     for(int i = 0; i < N; i++) {
-        d.push_back(Car());
+        d.push_back(Car()); //push back to d
     }
     cout << "Init que:" << endl;
     p(d);
@@ -23,14 +23,20 @@ int main() {
         if((rand() % 100) < 55) {
             cout << "Car paid: ";
             d.front().print();
-            d.pop_front();
-        } 
+            d.pop_front(); //remove front of que
+        } else {
+            Car c;
+            d.push_back(c); //add to back
+            cout << "Joined lane: ";
+            c.print();
+        }
+        p(d);
     }
 }
 
 void p(deque<Car>& d) {
     for(auto& c : d) {
         cout << "     ";
-        c.print();
+        c.print(); //print
     }
 }
