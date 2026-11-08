@@ -31,35 +31,44 @@ int main() {
 
 
 
-void p(deque<Car>& d) {
+void p(deque<Car>& d) { //prints a lane
     for(auto& c : d) {
         cout << "     ";
         c.print(); //print
     }
 }
 
-void pa(deque<Car> d[]) {
+void pa(deque<Car> d[]) { // prints all lanes
     for(int i = 0; i < L; i++) {
         cout << "lane " << i + 1 << " que:" << endl;
         p(d[i]);
     }
 }
 
-void pay(deque<Car>& d, int i) {
+void pay(deque<Car>& d, int i) { // front car pays and leaves
     cout << "lane " << i + 1 << "paid: ";
     d.front().print();
     d.pop_front();
 }
 
-void join(deque<Car>& d, int i) {
+void join(deque<Car>& d, int i) { //car joins
     d.push_back(Car());
     cout << "lane " << i +1 << " joined: ";
     d.back().print();
 }
 
-void period(deque<Car> d[]) {
+void period(deque<Car> d[]) { // time period, or cycle
     for(int i = 0; i < L; i++){
         int r = rand() % 100;
-        
+        if(d[i].empty()){
+            if(r < EMP) {
+                join(d[i], i);
+            }
+
+        } else if(r < EMP) {
+            pay(d[i], i);
+        } else {
+            join(d[i], i);
+        }
     }
 }
