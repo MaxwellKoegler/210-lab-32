@@ -14,7 +14,7 @@ void pa(deque<Car>[]);
 int main() {
     srand(time(0));
     deque<Car> d[L]; //car obj que
-    for(int i = 0; i < N; i++) {
+    for(int i = 0; i < L; i++) {
         for(int j = 0; j < N; j++) {
             d[i].push_back(Car()); //push back to d
         }
