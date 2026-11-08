@@ -13,27 +13,19 @@ void pa(deque<Car>[]);
 
 int main() {
     srand(time(0));
-    deque<Car> d; //car obj que
+    deque<Car> d[L]; //car obj que
     for(int i = 0; i < N; i++) {
-        d.push_back(Car()); //push back to d
-    }
-    cout << "Init que:" << endl;
-    p(d);
-    int t = 0;
-    while(!d.empty()) {
-        cout << endl << "Time: " << ++t << " Operation: ";
-        if((rand() % 100) < 55) {
-            cout << "Car paid: ";
-            d.front().print();
-            d.pop_front(); //remove front of que
-        } else {
-            Car c;
-            d.push_back(c); //add to back
-            cout << "Joined lane: ";
-            c.print();
+        for(int j = 0; j < N; j++) {
+            d[i].push_back(Car()); //push back to d
         }
-        p(d);
     }
+    pa(d);
+    cout << endl << "test: pop front l1, move rear l3 to l2";
+    d[0].pop_front();
+    d[1].push_back(d[2].back());
+    d[2].pop_back();
+    pa(d);
+
 }
 
 void p(deque<Car>& d) {
