@@ -50,3 +50,16 @@ void pay(deque<Car>& d, int i) {
     d.front().print();
     d.pop_front();
 }
+
+void join(deque<Car>& d, int i) {
+    d.push_back(Car());
+    cout << "lane " << i +1 << " joined: ";
+    d.back().print();
+}
+
+void period(deque<Car> d[]) {
+    for(int i = 0; i < L; i++){
+        int r = rand() % 100;
+        
+    }
+}
