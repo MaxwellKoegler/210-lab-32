@@ -6,9 +6,14 @@
 
 const int N = 2;
 const int L = 4;
+const int T = 20;
+const int EMP = 50;
 
 void p(deque<Car>&);
 void pa(deque<Car>[]);
+void pay(deque<Car>[]);
+void join(deque<Car>&, int);
+void period(deque<Car>[]);
 
 
 int main() {
@@ -38,4 +43,10 @@ void pa(deque<Car> d[]) {
         cout << "lane " << i + 1 << " que:" << endl;
         p(d[i]);
     }
+}
+
+void pay(deque<Car>& d, int i) {
+    cout << "lane " << i + 1 << "paid: ";
+    d.front().print();
+    d.pop_front();
 }
