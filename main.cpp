@@ -14,9 +14,10 @@ const int SW = 15;
 
 void p(deque<Car>&);
 void pa(deque<Car>[]);
-void pay(deque<Car>[]);
+void pay(deque<Car>&, int);
 void join(deque<Car>&, int);
 void period(deque<Car>[]);
+void sw(deque<Car>[], int);
 
 
 int main() {
@@ -40,6 +41,9 @@ int main() {
 
 
 void p(deque<Car>& d) { //prints a lane
+    if(d.empty()){
+        cout << " empty " << endl;
+    }
     for(auto& c : d) {
         cout << "     ";
         c.print(); //print
@@ -54,7 +58,7 @@ void pa(deque<Car> d[]) { // prints all lanes
 }
 
 void pay(deque<Car>& d, int i) { // front car pays and leaves
-    cout << "lane " << i + 1 << "paid: ";
+    cout << "lane " << i + 1 << " paid: ";
     d.front().print();
     d.pop_front();
 }
@@ -73,10 +77,23 @@ void period(deque<Car> d[]) { // time period, or cycle
                 join(d[i], i);
             }
 
-        } else if(r < EMP) {
+        } else if(r < PAY) {
             pay(d[i], i);
-        } else {
+        } else if(r < PAY + JN){
             join(d[i], i);
+        } else if(r < PAY + JN + SW){
+            sw(d,i);
         }
     }
+}
+
+void sw(deque<Car> d[], int i) {
+    int n = rand() % (L-1);
+    if(n >= i) {
+        n++;
+    }
+    cout << "lane " << i + 1 << " switched to ln "<< n +1 << ": ";
+    d[i].back().print();
+    d[n].push_back(d[i].back());
+    d[i].pop_back();
 }
