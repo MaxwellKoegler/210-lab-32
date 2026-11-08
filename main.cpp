@@ -26,6 +26,11 @@ int main() {
     }
     cout << "init que:" << endl;
     pa(d);
+    for(int i = 1; i <= T; i++) {
+        cout << endl << "time: " << i << endl;
+        period(d);
+        pa(d);
+    }
 }
 
 
