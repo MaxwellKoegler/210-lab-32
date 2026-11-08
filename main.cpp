@@ -5,8 +5,10 @@
 #include <ctime>
 
 const int N = 2;
+const int L = 4;
 
 void p(deque<Car>&);
+void pa(deque<Car>[]);
 
 
 int main() {
@@ -38,5 +40,12 @@ void p(deque<Car>& d) {
     for(auto& c : d) {
         cout << "     ";
         c.print(); //print
+    }
+}
+
+void pa(deque<Car> d[]) {
+    for(int i = 0; i < L; i++) {
+        cout << "lane " << i + 1 << " que:" << endl;
+        p(d[i]);
     }
 }
