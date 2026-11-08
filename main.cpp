@@ -1,4 +1,4 @@
-//Maxwell Koegler | COMSC 210 | lab 32
+//Maxwell Koegler | COMSC 210 | lab 33
 
 #include "Car.h"
 #include <deque>
@@ -19,14 +19,12 @@ int main() {
             d[i].push_back(Car()); //push back to d
         }
     }
+    cout << "init que:" << endl;
     pa(d);
-    cout << endl << "test: pop front l1, move rear l3 to l2";
-    d[0].pop_front();
-    d[1].push_back(d[2].back());
-    d[2].pop_back();
-    pa(d);
-
 }
+
+
+
 
 void p(deque<Car>& d) {
     for(auto& c : d) {
