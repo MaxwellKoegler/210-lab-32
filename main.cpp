@@ -8,6 +8,9 @@ const int N = 2;
 const int L = 4;
 const int T = 20;
 const int EMP = 50;
+const int PAY = 46;
+const int JN = 39;
+const int SW = 15;
 
 void p(deque<Car>&);
 void pa(deque<Car>[]);
